@@ -2,7 +2,6 @@ package com.grzeszczyk.weronika.states;
 
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Vector3;
 
 /**
  * Created on 28.05.2018.
@@ -10,13 +9,12 @@ import com.badlogic.gdx.math.Vector3;
 
 public abstract class State {
     protected OrthographicCamera camera;
-    protected Vector3 mouse;
     protected GameStateManager gameStateManager;
 
     protected State(GameStateManager gameStateManager) {
         this.gameStateManager = gameStateManager;
         camera = new OrthographicCamera();
-        mouse = new Vector3();
+        camera.setToOrtho(false, 240, 400);
     }
 
     protected abstract void handleInput();

@@ -3,22 +3,23 @@ package com.grzeszczyk.weronika.states;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.grzeszczyk.weronika.FlappyBird;
 import com.grzeszczyk.weronika.sprites.Bird;
+import com.grzeszczyk.weronika.sprites.Tube;
 
 public class PlayState extends State {
     private final int STARTING_POSITION_X = 50;
     private final int STARTING_POSITION_Y = 300;
     private Bird bird;
+    private Tube tube;
 
     private Texture background;
 
     public PlayState(GameStateManager gameStateManager) {
         super(gameStateManager);
         bird = new Bird(STARTING_POSITION_X, STARTING_POSITION_Y);
-        camera.setToOrtho(false, FlappyBird.WIDTH / 2, FlappyBird.HEIGHT / 2);
 
         background = new Texture("bg.png");
+        tube = new Tube(100);
     }
 
     @Override
@@ -41,9 +42,18 @@ public class PlayState extends State {
         spriteBatch.draw(
             background,
             camera.position.x - (camera.viewportWidth / 2),
-            0,
-            camera.viewportWidth * FlappyBird.SCALE,
-            camera.viewportHeight * FlappyBird.SCALE);
+            0
+        );
+        spriteBatch.draw(
+            tube.getTopTubeTexture(),
+            tube.getTopTubePosition().x,
+            tube.getTopTubePosition().y
+        );
+        spriteBatch.draw(
+            tube.getBottomTubeTexture(),
+            tube.getBottomTubePosition().x,
+            tube.getBottomTubePosition().y
+        );
         spriteBatch.draw(
             bird.getTexture(),
             bird.getPosition().x,

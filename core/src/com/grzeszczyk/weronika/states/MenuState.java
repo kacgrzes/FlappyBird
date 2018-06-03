@@ -41,7 +41,7 @@ public class MenuState extends State{
     public void render(SpriteBatch spriteBatch) {
         spriteBatch.begin();
         spriteBatch.draw(background, 0, 0, FlappyBird.WIDTH, FlappyBird.HEIGHT);
-        spriteBatch.draw(playButton, (FlappyBird.WIDTH / 2) - (buttonWidth / 2), (FlappyBird.HEIGHT / 2) - (buttonHeight / 2), buttonWidth, buttonHeight);
+        spriteBatch.draw(playButton, (FlappyBird.WIDTH / 2) - (buttonWidth / 2), (FlappyBird.HEIGHT / 2) - (buttonHeight / 2), buttonWidth * 2, buttonHeight * 2);
         spriteBatch.end();
 
     }

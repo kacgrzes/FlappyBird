@@ -9,9 +9,9 @@ import com.grzeszczyk.weronika.states.MenuState;
 
 public class FlappyBird extends ApplicationAdapter {
 
-	public static int WIDTH = 480;
-	public static int HEIGHT = 800;
-	public static int SCALE = 2;
+	public static int WIDTH = 240;
+	public static int HEIGHT = 400;
+	public static int SCALE = 1;
 
 	private GameStateManager gameStateManager;
 	private SpriteBatch spriteBatch;
